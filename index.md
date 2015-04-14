@@ -1,50 +1,46 @@
 ---
-layout: default
-group: home
+layout: page
+title: Hello World!
+tagline: Supporting tagline
 ---
 {% include JB/setup %}
-<div class="page-title-inline">
-	{% if page.group == 'home' %}
-	<h1>{{ site.title }} </h1>
-	{% if site.tagline %}<h2>{{ site.tagline }}</h2>{% endif %}
-	{% else %}
-	<h1>{{ page.title }} </h1>
-	{% if page.tagline %}<h2>{{ page.tagline }}</h2>{% endif %}
-	{% endif %}
-</div>
-<div class="cont932">
-	<hr style="margin-top: 0;">
-	<div id="journal-articles-block">
-	{% for post in paginator.posts %}
-		<div class="journal-article">
-			<div class="journal-post-info">
-				{% assign categories_list = post.categories %}
-				{% assign category = categories_list.first %}
-				{% include themes/Snail/category.html %}
-				{% assign categories_list = nil %}
-			</div>
-			<div class="journal-body">
-				<h1 class="journal-title"><a href="{{ post.url }}">{{ post.title }}</a><span class="author">{{ post.tagline }}</span></h1>
-				{% case site.excerpt %}
-				{% when "truncate_words" %}
-				<span class="teaser"><p>{{ post.content | strip_html | truncatewords: 20 }}</p>
-				{% when "teaser" %}
-				<span class="teaser">{{ post.content  | split:'<!--more-->' | first }}
-				{% endcase %}
-				</span>
-				<span class="readmore"><a href="{{ post.url }}">Read More</a></span>
-			</div>
-		</div>
-		<div class="clearboth"></div>
-		{% endfor %}
-	</div>
-	{% if paginator.next_page  %}
-	<div id="journal-arrows-cont">
-			<a href="{{ paginator.next_page_path }}" class="journal-arrow ja-forward"></a>
-	</div>
-	{% endif %}
-	<div class="clearboth"></div>
-	<div id="journal-loadmore">Load More…</div>
-	<div class="clearboth"></div>
-</div>
-<div class="clearboth"></div>
+
+Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+
+Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+
+## Update Author Attributes
+
+In `_config.yml` remember to specify your own data:
+    
+    title : My Blog =)
+    
+    author :
+      name : Name Lastname
+      email : blah@email.test
+      github : username
+      twitter : username
+
+The theme should reference these variables whenever needed.
+    
+## Sample Posts
+
+This blog contains sample posts which help stage pages and blog data.
+When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+
+    $ rm -rf _posts/core-samples
+
+Here's a sample "posts list".
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
+## To-Do
+
+This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
+We need to clean up the themes, make theme usage guides with theme-specific markup examples.
+
+
