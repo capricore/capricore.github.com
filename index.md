@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hello World!
+title: Capricore's Blog
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
@@ -16,10 +16,10 @@ In `_config.yml` remember to specify your own data:
     title : My Blog =)
     
     author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+      name : Yan Yan
+      email : yy100922@gmail.com
+      github : https://github.com/capricore
+    
 
 The theme should reference these variables whenever needed.
     
